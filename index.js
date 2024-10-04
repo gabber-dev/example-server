@@ -2,21 +2,22 @@ const express = require('express');
 const axios = require('axios');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // Replace with your service key
-const SERVICE_KEY = 'e3da8c0e-af40-4dc1-a587-a7a366e59fa7';
+const SERVICE_KEY = '96cea574-7ae6-4aa4-bd46-4ebd47bda6a5';
 
 app.use(express.json());
 
 // Route to start a session by calling the Gabber API
 app.post('/start-session', async (req, res) => {
+console.log('req.body');
   try {
 
     // Prepare the payload and API request to Gabber, based on the working request from the website
     const response = await axios.post('https://app.gabber.dev/api/v1/session/start', {
-      persona: "630379c8-420e-492d-9e02-23e4946e15a6",
-      scenario: "69bc3f47-f6d7-4b1f-a24f-b6b30e50676b",
+      persona: "e064c604-e2e2-4f0f-ad7c-b12eca63b22b",
+      scenario: "8181e76e-2e69-48fa-ba41-c321de4932aa",
       llm: "66df3c9d-5d8c-4cfc-8b65-a805c1f8ab53",
       time_limit_s: null,
       webhook: "https://app.gabber.dev/api/v1/internal/test/webhook"
