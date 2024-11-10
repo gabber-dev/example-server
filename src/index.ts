@@ -1,11 +1,18 @@
 import express, { Request, Response } from 'express';
 import axios from 'axios';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 const port = 4000;
+
+var corsOptions = {
+  origin: 'http://localhost:3000', // For the example react app
+}
+
+app.use(cors(corsOptions));
 
 const axiosInstance = axios.create({
   baseURL: 'https://app.gabber.dev',
