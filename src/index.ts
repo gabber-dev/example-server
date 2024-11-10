@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
 const axiosInstance = axios.create({
   baseURL: 'https://app.gabber.dev',
