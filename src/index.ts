@@ -34,7 +34,7 @@ app.get('/token', async (req: Request, res: Response) => {
   // For this example, I make up an id and do a TTL of 1 hr (3600 seconds) on the token.
   // Eventually we will be adding a spend limit as another field on a token.
   try {
-    const response = await axiosInstance.post('api/v1/usage/token', {
+    const response = await axiosInstance.post('/v1/usage/token', {
       human_id: '123',
       ttl_seconds: 3600
     });
