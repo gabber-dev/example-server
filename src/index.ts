@@ -29,13 +29,14 @@ app.use(express.json());
 // Endpoint to generate a token
 app.get('/token', async (req: Request, res: Response) => {
   // Here you would put your own logic to determine which
-  // which human_id to use (usually the id of the user you have in your database)
-  // and which limits to apply to the token.
-  // For this example, I make up an id and do a 120s limit on the conversation product.
+  // human_id to use (usually the id of the user you have in your database)
+  // and which TTL to apply to the token.
+  // For this example, I make up an id and do a TTL of 100 seconds on the token.
+  // Eventually we will be adding a spend limit as another field on a token.
   try {
     const response = await axiosInstance.post('api/v1/usage/token', {
       human_id: '123',
-      limits: [{type: "conversational_seconds", value: 120}]
+      ttl_seconds: 100
     });
     const token = response.data.token;
     res.json({ token });
